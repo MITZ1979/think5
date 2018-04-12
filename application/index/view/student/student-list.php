@@ -27,8 +27,8 @@
 <nav class="breadcrumb">学生信息 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
   <div class="cl pd-5 bg-1 bk-gray mt-1">
-    <span class="l"><a href="javascript:;" onclick="dataDel()" class="btn btn-danger radius"><i class="icon-trash"></i> 批量恢复</a>
-    <a href="javascript:;" onclick="student_add('添加学生','{:url('student/studentAdd')}','800','500')" class="btn btn-primary radius"><i class="icon-plus"></i> 添加学生</a></span>
+    <span class="l"><a href="javascript:;" onclick="dataDel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>批量恢复</a>
+    <a href="javascript:;" onclick="student_add('添加学生','{:url('student/studentAdd')}','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加学生</a></span>
     <span class="r">共有数据：<strong>{$count}</strong> 条</span>
   </div>
   <table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -70,7 +70,7 @@
             {else /}
             <a title="text-decoration:none" onclick="stu_start(this,{$vo.id})" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a>
             {/if}
-            <a title="编辑" href="javascript:;" onclick="student_edit('编辑教师','{:url("teacher/teacherEdit",["id"=>$vo["id"]])}','1','800','500')" class="ml-5"
+            <a title="编辑" href="javascript:;" onclick="student_edit('编辑教师','{:url("student/stuEdit",["id"=>$vo["id"]])}','1','800','500')" class="ml-5"
             style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
             <a title="删除" href="javascript:;" onclick="student_del(this,{$vo.id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
         </td>
@@ -151,7 +151,7 @@ function student_edit(title, url, id, w, h){
 //删除教师
 function student_del(obj,id){
     layer.confirm('确认要删除吗？', function (index) {
-        $.get("{:url('teacher/deleteTeacher')}", {id: id});
+        $.get("{:url('student/deleteStu')}", {id: id});
         $(obj).parents("tr").remove();
         layer.msg('已删除!', {icon: 1, time: 1000});
     });

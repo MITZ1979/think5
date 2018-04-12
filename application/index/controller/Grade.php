@@ -64,7 +64,7 @@ class Grade extends Base
             $status = 1;
             $message = '恭喜您，添加成功';
         }
-        return "<html style='width: 300px;height:100px;margin: auto;'><h1> $message</h1>is_delete</html>"; //json_encode(['status'=>$status,'message'=>$message]);
+        return ['status'=>$status,'message'=>$message];//json_encode(['status'=>$status,'message'=>$message]);
     }
 
     //删除班级的方法
@@ -127,17 +127,9 @@ class Grade extends Base
         //检测更新结果,将结果返回给grade_edit模板中的ajax提交回调处理
         if (true == $result) {
             $status = 1;
-            $message = '更新成功！';
+            $message = '恭喜您，更新成功！';
         }
         return ['status' => $status, 'message' => $message];
     }
-
-//    //分页paginate
-//    public function paginate()
-//    {
-//        $list = GradeModel::where('status', 1)->paginate(12);
-//        $this->assign('gradeList', $list);
-//        return $this->fetch('grade/grade_list');
-//    }
 
 }

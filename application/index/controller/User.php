@@ -151,12 +151,12 @@ class User extends Base
         }
         if (true == $result) {
 
-            return [UserModel::update(['status' => 1]),'message'=>'更新成功'];
+            return [UserModel::update(['status' => 1]), 'message' => '更新成功'];
 
         } else {
-            return [UserModel::update(['status' => 0]),'message' => '更新失败,请检查'];
+            return [UserModel::update(['status' => 0]), 'message' => '更新失败,请检查'];
         }
-      //  return "<html style='width: 300px;height:100px;margin: auto;'><h1> $message</h1></html>";
+        //  return "<html style='width: 300px;height:100px;margin: auto;'><h1> $message</h1></html>";
     }
 
     //删除
@@ -222,9 +222,9 @@ class User extends Base
             $user = UserModel::create($request->param());
             if ($user == null) {
                 $status = 0;
-                $message = '添加失败！！！';
+                $message = '很遗憾，添加失败，请检查！';
             }
         }
-        return "<html style='width: 300px;height:100px;margin: auto;'><h1> $message</h1></html>";
+        return ['status' => $status, 'message' => $message];//"<html style='width: 300px;height:100px;margin: auto;'><h1> $message</h1></html>";
     }
 }

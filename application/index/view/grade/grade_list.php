@@ -28,7 +28,7 @@
 <div class="pd-2">
     <div class="cl pd-5 bg-1 bk-gray mt-20">
     <span class="l">
-        <a href="javascript:;" onclick="unDelete()" class="btn btn-danger radius"><i class="icon-trash">&#xe6e2;</i> 批量恢复</a>
+        <a href="javascript:;" onclick="unDelete()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>批量恢复</a>
         <a href="javascript:;" onclick="grade_add('添加班级','{:url("grade/gradeAdd")}','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加班级</a>
     </span>
         <span class="r">共有数据：<strong>{$count}</strong> 条</span>

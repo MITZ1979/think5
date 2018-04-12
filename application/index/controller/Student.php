@@ -18,7 +18,8 @@ class Student extends Base
     {
         $student=StudentModel::all();
         $count = StudentModel::count();
-        $studentList[]=null;
+        //$studentList []= null; 等于$studentList [0]= null;
+        $studentList = []; //空字符串
         foreach($student as $value){
             $data=[
                 'id'=>$value->id,
@@ -28,6 +29,8 @@ class Student extends Base
                 'mobile'=>$value->mobile,
                 'email'=>$value->email,
                 'status'=>$value->status,
+                'start_time'=>$value->start_time,
+                'grade'=>isset($value->grade->name) ? $value->grade->name : '<span style="color:red">未分配</span>',
             ];
             $studentList[]=$data;
         }
@@ -35,13 +38,14 @@ class Student extends Base
         $this->view->assign('studentList',$studentList);
         return $this->view->fetch('student-list');
     }
-    //曾
+    //曾（渲染添加页面）
     public function studentAdd()
     {
         //将班级表中所以数据赋值到当前模板中
         $this->view->assign('gradeList',\app\index\model\Grade::all());
         return $this->view->fetch('student-add');
     }
+    //添加学生
     public function doAdd(Request $request)
     {
         //从添加页面获取数据
@@ -57,18 +61,55 @@ class Student extends Base
         }
         return ['status'=>$status,'message'=>$message];
     }
-    //删
-    public function deleteStu()
+    //删除学生
+    public function deleteStu(Request $request)
     {
-
+        $stu_id=$request->param('id');
+        StudentModel::update(['id_delete'=>1],['id'=>$stu_id]);
+        StudentModel::destroy($stu_id);
     }
-    //改
-    public function stuEdit()
-    {}
+    //改(渲染页面)
+    public function stuEdit(Request $request)
+    {
+        $stu_id=$request->param();
+        $result=StudentModel::get($stu_id);
+        $result->grade=$request->grade->name;
+        $this->view->assign('student_info',$result);
+
+        return $this->view->fetch('student-edit');
+    }
+    //执行编辑
+    public function doEdit(Request $request)
+    {
+        $data=$request->except('grade');
+        $condition=['id' => $data['id']];
+        $result=StudentModel::update($data,$condition);
+
+        $status=0;
+        $message='更新失败，请检查';
+
+        if (true==$result){
+            $status=1;
+            $message='恭喜您，更新成功！';
+        }
+
+        return ['status'=>$status,'message'=>$message];
+    }
     //状态
-    public function setStatus()
-    {}
-    //
+    public function setStatus(Request $request)
+    {
+        $stu_id = $request->param('id');
+
+        $result = GradeModel::get($stu_id);
+        //
+        if ($result->getData('status') == 1) {
+            GradeModel::update(['status' => 0], ['id' => $stu_id]);
+        } else {
+            GradeModel::update(['status' => 1], ['id' => $stu_id]);
+        }
+        return $this->view->fetch('student_list');
+    }
+    //批量恢复数据
     public function unDelete(Request $request)
     {
         StudentModel::update(['delete_time' => NULL], ['is_delete' => 1]);
