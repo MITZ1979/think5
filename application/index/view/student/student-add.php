@@ -19,13 +19,13 @@
 <script type="text/javascript" src="__STATIC__/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>添加管理员</title>
+<title>添加学生</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 </head>
 <body>
 <article class="page-container">
-	<form action="{:url('student/doAdd')}" method="post" class="form form-horizontal" id="form-student-add">
+	<form action="" method="post" class="form form-horizontal" id="form-student-add">
 
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名:</label>

@@ -30,7 +30,7 @@ class Student extends Model
     ];
 
     protected $type = [
-        'start_time' => 'timestamp'
+        'start_time'=>'timestamp'
     ];
 
     //

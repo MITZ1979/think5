@@ -89,17 +89,17 @@
 <script type="text/javascript" src="__STATIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-//    window.onload = (function () {
-//        // optional set
-//        pageNav.pre = "&lt;上一页";
-//        pageNav.next = "下一页&gt;";
-//        // p,当前页码,pn,总页面
-//        pageNav.fn = function (p, pn) {
-//            $("#pageinfo").text("当前页:" + p + " 总页: " + pn);
-//        };
-//        //重写分页状态,跳到第三页,总页33页
-//        pageNav.go(1, 13);
-//    });
+    window.onload = (function () {
+        // optional set
+        pageNav.pre = "&lt;上一页";
+        pageNav.next = "下一页&gt;";
+        // p,当前页码,pn,总页面
+        pageNav.fn = function (p, pn) {
+            $("#pageinfo").text("当前页:" + p + " 总页: " + pn);
+        };
+        //重写分页状态,跳到第三页,总页33页
+        pageNav.go(1, 13);
+    });
 //    $('.table-sort').dataTable({
 //        "lengthMenu": false,//显示数量选择
 //        "bFilter": false,//过滤功能
