@@ -21,6 +21,7 @@ class Grade extends Base
         //获取记录数量
         $this->view->count = GradeModel::count();
         //遍历grade表
+        $gradeList = []; //空字符串
         foreach ($grade as $value) {
             $data = [
                 'id' => $value->id,

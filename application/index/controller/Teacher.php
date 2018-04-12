@@ -16,7 +16,7 @@ class Teacher extends Base
     {
         $teacher=TeacherModel::all();
         $count = TeacherModel::count();
-//        $teacherList=null;
+        $teacherList=[]; //空字符串
         foreach($teacher as $value){
             $data=[
                 'id'=>$value->id,
