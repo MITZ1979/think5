@@ -153,9 +153,7 @@ function student_edit(title, url, id, w, h){
 //删除教师
 function student_del(obj,id){
     layer.confirm('确认要删除吗？', function (index) {
-        $.get("{:url('student/deleteStu')}", {id: id}, function (res) {
-            alert(res);
-        });
+        $.get("{:url('student/deleteStu')}", {id: id});
         $(obj).parents("tr").remove();
         layer.msg('已删除!', {icon: 1, time: 1000});
     });
