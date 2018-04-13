@@ -25,7 +25,7 @@
 </head>
 <body>
 <article class="page-container">
-	<form action="/tp5/public/index.php/index/grade/addGrade" method="post" class="form form-horizontal" id="form-grade-add">
+	<form action="" method="post" class="form form-horizontal" id="form-grade-add">
 
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>班级：</label>

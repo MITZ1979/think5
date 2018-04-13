@@ -70,7 +70,7 @@
                 <a style="text-decoration:none" onClick="grade_start(this,{$vo.id})" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a>
                 {/if}
 
-                <a title="编辑" href="javascript:;" onclick="grade_edit('编辑列表','{:url("grade/gradeEdit",["id"=>$vo["id"]])}','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                <a title="编辑" href="javascript:;" onclick="grade_edit('编辑列表','{:url("grade/gradeEdit")}','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                 <a title="删除" href="javascript:;" onclick="grade_del(this,{$vo.id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
             </td>
         </tr>

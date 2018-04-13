@@ -64,18 +64,21 @@ class Student extends Base
     //删除学生
     public function deleteStu(Request $request)
     {
-        $stu_id=$request->param('id');
-        StudentModel::update(['id_delete'=>1],['id'=>$stu_id]);
-        StudentModel::destroy($stu_id);
+        $student_id=$request->param('id');
+        //dump($student_id);
+        StudentModel::update(['is_delete'=>1],['id'=>$student_id]);
+        StudentModel::destroy($student_id);
+
     }
     //改(渲染页面)
     public function stuEdit(Request $request)
     {
-        $stu_id=$request->param();
+        $stu_id=$request->param('id');
         $result=StudentModel::get($stu_id);
-        $result->grade=$request->grade->name;
+        $result->grade=$result->grade->name;
         $this->view->assign('student_info',$result);
-
+        //关联查询
+        $this->view->assign('gradeList',\app\index\model\Grade::all());
         return $this->view->fetch('student-edit');
     }
     //执行编辑

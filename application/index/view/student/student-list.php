@@ -70,7 +70,7 @@
             {else /}
             <a title="text-decoration:none" onclick="stu_start(this,{$vo.id})" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a>
             {/if}
-            <a title="编辑" href="javascript:;" onclick="student_edit('编辑教师','{:url("student/stuEdit",["id"=>$vo["id"]])}','1','800','500')" class="ml-5"
+            <a title="编辑" href="javascript:;" onclick="student_edit('编辑学生','{:url("student/stuEdit",["id"=>$vo["id"]])}','800','500')" class="ml-5"
             style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
             <a title="删除" href="javascript:;" onclick="student_del(this,{$vo.id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
         </td>
@@ -135,6 +135,7 @@ function stu_start(obj, id) {
         $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
         $(obj).remove();
         layer.msg('已启用', {icon: 6, time: 1000});
+
     })
 }
 //添加的方法
@@ -148,14 +149,18 @@ function student_edit(title, url, id, w, h){
     $.get(url,{id : id });
     layer_show(title, url, w, h);
 }
+
 //删除教师
 function student_del(obj,id){
     layer.confirm('确认要删除吗？', function (index) {
-        $.get("{:url('student/deleteStu')}", {id: id});
+        $.get("{:url('student/deleteStu')}", {id: id}, function (res) {
+            alert(res);
+        });
         $(obj).parents("tr").remove();
         layer.msg('已删除!', {icon: 1, time: 1000});
     });
 }
+
     function dataDel(){
         layer.confirm("确认要恢复吗？", function (index) {
             $.get("{:url('student/unDelete')}");

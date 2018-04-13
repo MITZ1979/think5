@@ -23,30 +23,30 @@
   </head>
 <body>
   <article class="cl pd-20">
-    <form action="{:url('teacher/doEdit')}" method="post" class="form form-horizontal" id="form-teacher-edit">
+    <form action="" method="post" class="form form-horizontal" id="form-student-edit">
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名:</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text disable" value="{$teacher_info.name}" placeholder="姓名" id="name"
+                <input type="text" class="input-text disable" value="{$student_info.name}" placeholder="姓名" id="name"
                        name="name" style="width: 500px">
             </div>
 
         </div>
 
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>学历:</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>性别:</label>
             <div class="form-Controls col-xs-8 col-sm-9">
-                <input type="text" id="degree" name="degree" class="input-text" autocomplete="off" placeholder="学历"
-                       style="width: 500px"   value="{$teacher_info.degree}">
+                <input type="text" id="sex" name="sex" class="input-text" autocomplete="off" placeholder="性别"
+                       style="width: 500px"   value="{$student_info.sex}">
             </div>
         </div>
 
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>毕业学校:</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>年齡:</label>
             <div class="form-Controls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" id="school" name="school" placeholder="学费" style="width: 500px"
-                       value="{$teacher_info.school}">
+                <input type="text" class="input-text" id="age" name="age" placeholder="年齡" style="width: 500px"
+                       value="{$student_info.age}">
             </div>
         </div>
 
@@ -54,26 +54,26 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机号:</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" maxlength="11" placeholder="phoneNumber"
-                       style="width: 500px"   value="{$teacher_info.mobile}" name="mobile" id="mobile">
+                       style="width: 500px"   value="{$student_info.mobile}" name="mobile" id="mobile">
             </div>
         </div>
 
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>入职时间:</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>入学时间:</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input id="hiredate" name="hiredate" placeholder="入职时间" type="date" value="{$teacher_info.hiredate}">
+                <input id="start_time" name="start_time" placeholder="入学时间" type="date" value="{$student_info.start_time}">
             </div>
         </div>
 
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">负责班级:</label>
+            <label class="form-label col-xs-4 col-sm-3">班级:</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <span class="select-box" style="width: 150px">
                     <select class="select" name="grade_id" size="1">
-                        {volist name='gradeList' id='vo'}
-                        <option value="{$vo.id}" selected>{$vo.name}</option>
-                        {/volist}
-                        <option value="0" selected>不分配</option>
+                    {volist name='gradeList' id='vo'}
+                    <option value="{$vo.id}" selected>{$vo.name}</option>
+                    {/volist}
+                    <option value="0" selected>不分配</option>
                     </select>
               </span>
             </div>
@@ -83,10 +83,10 @@
             <label class="form-label col-xs-4 col-sm-3">状态:</label>
             <div class="form-Controls col-xs-8 col-sm-9">
               <span class="select-box" style="width:150px"><select class="select" name="status" size="1">
-                      {eq name='$teacher_info.status' value="1"}
-                      <option value="1">启用</option>
+                      {eq name='$student_info.status' value='1'}
+                      <option value="1">已启用</option>
                       {else /}
-                      <option value="0" selected>不启用</option>
+                      <option value="0">不启用</option>
                       {/eq}
                   </select>
               </span>
@@ -94,7 +94,7 @@
         </div>
 
         <!--將当前记录的id作为隐藏域发送到服务器-->
-        <input type="hidden" value="{$teacher_info.id}" name="id">
+        <input type="hidden" value="{$student_info.id}" name="id">
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
@@ -118,8 +118,8 @@ $(function(){
     $("#submit").on("click", function(event){
         $.ajax({
             type: "POST",
-            url: "{:url('teacher/doEdit')}",
-            data: $("#form-teacher-edit").serialize(),
+            url: "{:url('student/doEdit')}",
+            data: $("#form-student-edit").serialize(),
             dataType: "json",
             success: function(data){
                 if (data.status == 1) {

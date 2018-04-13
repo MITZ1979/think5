@@ -46,7 +46,7 @@ class Grade extends Base
     //添加班级按钮
     public function gradeAdd(Request $request)
     {
-        $this->view->assign('title', '添加班级');
+        //$this->view->assign('title', '添加班级');
         return $this->view->fetch('grade-add');
     }
 
@@ -65,7 +65,7 @@ class Grade extends Base
             $status = 1;
             $message = '恭喜您，添加成功';
         }
-        return ['status'=>$status,'message'=>$message];//json_encode(['status'=>$status,'message'=>$message]);
+        return ['status'=>$status,'message'=>$message];
     }
 
     //删除班级的方法
@@ -106,7 +106,8 @@ class Grade extends Base
         //根据ID进行查询
         $result = GradeModel::get($grade_id);
         //关联查询，获取与当前班级对应的教师姓名
-        $result->teacher = $result->teacher->name;
+       //$result['teacher'] = ($result && !empty($result->teacher)) ? $result->teacher->name : '未分配';
+
 
         $this->view->assign('title', '班级编辑');
         $this->view->assign('grade_info', $result);

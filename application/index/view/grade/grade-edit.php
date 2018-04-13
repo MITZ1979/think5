@@ -17,13 +17,13 @@
   <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
   <script type="text/javascript" src="__STATIC__/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
   <script>DD_belatedPNG.fix('*');</script>
-  <title>{$title|default="标题"}</title>
+  <title>编辑生</title>
   <meta name="keywords" content="{$keywords|default='关键字'}">
   <meta name="description" content="{$description|default='描述'}">
   </head>
 <body>
   <article class="cl pd-20">
-    <form action="/tp5/public/index.php/index/grade/gradeUpdate" method="post" class="form form-horizontal" id="form-grade-edit">
+    <form action="" method="post" class="form form-horizontal" id="form-grade-edit">
       <div class="row cl">
           <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>班级:</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -56,13 +56,13 @@
             </span>
           </div>
       </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">授课教师:</label>
-            <div class="form-Controls col-xs-8 col-sm-9">
-                <input type="text" class="input-text disabled readonly" readonly id="teacher" name="teacher" value="{$grade_info.teacher}" style="width: 500px">
-            </div>
-        </div>
-            <!--將当前记录的id作为隐藏域发送到服务器-->
+<!--        <div class="row cl">-->
+<!--            <label class="form-label col-xs-4 col-sm-3">授课教师:</label>-->
+<!--            <div class="form-Controls col-xs-8 col-sm-9">-->
+<!--                <input type="text" class="input-text disabled readonly" readonly id="teacher" name="teacher" value="{$grade_info.teacher}" style="width: 500px">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--            <!--將当前记录的id作为隐藏域发送到服务器-->-->
       <input type="hidden" value="{$grade_info.id}" name="id">
 
       <div class="row cl">

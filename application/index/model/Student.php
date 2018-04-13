@@ -19,6 +19,8 @@ class Student extends Model
     //
     protected $dateFormat = 'Y/m/d';
     //
+    protected $deleteTime='delete_time';
+
     protected $autoWriteTimestamp = true;
     //
     protected $createTime = 'create_time';

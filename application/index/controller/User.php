@@ -151,10 +151,10 @@ class User extends Base
         }
         if (true == $result) {
 
-            return [UserModel::update(['status' => 1]), 'message' => '更新成功'];
+            return [['status' => 1], 'message' => '更新成功'];
 
         } else {
-            return [UserModel::update(['status' => 0]), 'message' => '更新失败,请检查'];
+            return [['status' => 0], 'message' => '更新失败,请检查'];
         }
         //  return "<html style='width: 300px;height:100px;margin: auto;'><h1> $message</h1></html>";
     }
