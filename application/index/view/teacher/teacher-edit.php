@@ -23,7 +23,7 @@
   </head>
 <body>
   <article class="cl pd-20">
-    <form action="{:url('teacher/doEdit')}" method="post" class="form form-horizontal" id="form-teacher-edit">
+    <form action="" method="post" class="form form-horizontal" id="form-teacher-edit">
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名:</label>
@@ -104,7 +104,13 @@
 
     </form>
   </article>
-    <!--请在下方写此页面业务相关的脚本-->
+  <!--_footer 作为公共模版分离出去-->
+  <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
+  <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.min.js"></script>
+  <script type="text/javascript" src="__STATIC__/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+  <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>

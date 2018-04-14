@@ -23,7 +23,7 @@
   </head>
 <body>
   <article class="cl pd-20">
-    <form action="{:url('student/doEdit')}" method="post" class="form form-horizontal" id="form-student-edit">
+    <form action="" method="post" class="form form-horizontal" id="form-student-edit">
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名:</label>
@@ -110,33 +110,41 @@
 
     </form>
   </article>
-    <!--请在下方写此页面业务相关的脚本-->
+
+  <!--_footer 作为公共模版分离出去-->
+  <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
+  <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.min.js"></script>
+  <script type="text/javascript" src="__STATIC__/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+  <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-<script type="text/javascript">
-    $(function(){
-        //当用户修改了输入框内容时才触发
-        $("form").children().change(function(){
-            $("#submit").removeClass('disabled');
-        });
-        //ajax方式提交当前表单数据
-        $("#submit").on("click", function(event){
-            $.ajax({
-                type: "POST",
-                url: "{:url('student/doEdit')}",
-                data: $("#form-student-edit").serialize(),
-                dataType: "json",
-                success: function(data){
-                    if (data.status == 1) {
-                        alert(data.message);
-                    } else {
-                        alert(data.message);
-                    }
-                }
-            });
-        })
-    })
+<script>
+  $(function(){
+      //防止用户无更新提交，只有表中用户更新了才提交
+      $("form").children().change(function () {
+          $("#submit").removeClass('disable');
+      });
+
+      //提交表單
+      $("#submit").on("click",function (event) {
+          $.ajax({
+              type:"POST",
+              url:"{:url('student/doEdit')}",
+              data:$("#form-student-edit").serialize(),
+              dataType:"json",
+              success: function (data) {
+                  if (data.status==1){
+                      alert(data.message);
+                  }else {
+                      alert(data.message);
+                  }
+              }
+          });
+      });
+  });
 </script>
 </body>
 </html>

@@ -95,8 +95,8 @@ class Student extends Base
             $status=1;
             $message='恭喜您，更新成功！';
         }
-
         return ['status'=>$status,'message'=>$message];
+        //return '+<html>$message</html>+';//(['status'=>$status,'message'=>]);
     }
     //状态
     public function setStatus(Request $request)
