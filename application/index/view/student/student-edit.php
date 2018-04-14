@@ -23,7 +23,7 @@
   </head>
 <body>
   <article class="cl pd-20">
-    <form action="" method="post" class="form form-horizontal" id="form-student-edit">
+    <form action="{:url('student/doEdit')}" method="post" class="form form-horizontal" id="form-student-edit">
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名:</label>
@@ -115,7 +115,6 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
-
     $(function(){
         //当用户修改了输入框内容时才触发
         $("form").children().change(function(){
