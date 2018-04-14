@@ -85,9 +85,9 @@ class Student extends Base
     public function doEdit(Request $request)
     {
         $data=$request->except('grade');
-        $condition=['id' => $data['id']];
+        $condition=['id'=>$data['id']];
         $result=StudentModel::update($data,$condition);
-
+        //设置返回结果
         $status=0;
         $message='更新失败，请检查';
 

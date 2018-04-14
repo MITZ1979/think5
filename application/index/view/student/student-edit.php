@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="renderer" content="webkit|ie-comp|ie-stand">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <!--[if lt IE 9]>
-  <script type="text/javascript" src="__STATIC__/lib/html5shiv.js"></script>
-  <script type="text/javascript" src="__STATIC__/lib/respond.min.js"></script>
-  <![endif]-->
-  <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui/css/H-ui.min.css" />
-  <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/H-ui.admin.css" />
-  <link rel="stylesheet" type="text/css" href="__STATIC__/lib/Hui-iconfont/1.0.8/iconfont.css" />
-  <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/skin/default/skin.css" id="skin" />
-  <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
-  <script type="text/javascript" src="__STATIC__/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-  <script>DD_belatedPNG.fix('*');</script>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__STATIC__/lib/html5shiv.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
+<script type="text/javascript" src="__STATIC__/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
   <title>{$title|default="标题"}</title>
   <meta name="keywords" content="{$keywords|default='关键字'}">
   <meta name="description" content="{$description|default='描述'}">
@@ -61,7 +61,14 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>入学时间:</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input id="start_time" name="start_time" placeholder="入学时间" type="date" value="{$student_info.start_time}">
+                <input id="start_time" name="start_time" placeholder="入学时间" value="{$student_info.start_time}">
+            </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱:</label>
+            <div class="form-Controls col-xs-8 col-sm-9">
+                <input type="email" class="input-text" id="email" name="email" placeholder="@" value="{$student_info.email}" style="width: 500px">
             </div>
         </div>
 
@@ -73,7 +80,6 @@
                     {volist name='gradeList' id='vo'}
                     <option value="{$vo.id}" selected>{$vo.name}</option>
                     {/volist}
-                    <option value="0" selected>不分配</option>
                     </select>
               </span>
             </div>
@@ -98,7 +104,7 @@
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;" id="submit">
+                <input class="btn btn-primary radius" type="submit" id="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
 
@@ -109,28 +115,29 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
-$(function(){
-    //当用户修改了输入框内容时才触发
-    $("form").children().change(function(){
-        $("#submit").removeClass('disabled');
-    });
-    //ajax方式提交当前表单数据
-    $("#submit").on("click", function(event){
-        $.ajax({
-            type: "POST",
-            url: "{:url('student/doEdit')}",
-            data: $("#form-student-edit").serialize(),
-            dataType: "json",
-            success: function(data){
-                if (data.status == 1) {
-                    alert(data.message);
-                } else {
-                    alert(data.message);
-                }
-            }
+
+    $(function(){
+        //当用户修改了输入框内容时才触发
+        $("form").children().change(function(){
+            $("#submit").removeClass('disabled');
         });
+        //ajax方式提交当前表单数据
+        $("#submit").on("click", function(event){
+            $.ajax({
+                type: "POST",
+                url: "{:url('student/doEdit')}",
+                data: $("#form-student-edit").serialize(),
+                dataType: "json",
+                success: function(data){
+                    if (data.status == 1) {
+                        alert(data.message);
+                    } else {
+                        alert(data.message);
+                    }
+                }
+            });
+        })
     })
-})
 </script>
 </body>
 </html>

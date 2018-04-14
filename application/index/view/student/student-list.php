@@ -70,7 +70,7 @@
             {else /}
             <a title="text-decoration:none" onclick="stu_start(this,{$vo.id})" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a>
             {/if}
-            <a title="编辑" href="javascript:;" onclick="student_edit('编辑学生','{:url("student/stuEdit",["id"=>$vo["id"]])}','800','500')" class="ml-5"
+            <a title="编辑" href="javascript:;" onclick="student_edit('编辑学生','{:url("student/stuEdit",["id"=>$vo["id"]])}','1','800','500')" class="ml-5"
             style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
             <a title="删除" href="javascript:;" onclick="student_del(this,{$vo.id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
         </td>
@@ -95,28 +95,7 @@
 <script type="text/javascript" src="__STATIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-window.onload = (function(){
-    // optional set
-    pageNav.pre="&lt;上一页";
-    pageNav.next="下一页&gt;";
-    // p,当前页码,pn,总页面
-    pageNav.fn = function(p,pn){$("#pageinfo").text("当前页:"+p+" 总页: "+pn);};
-    //重写分页状态,跳到第三页,总页33页
-    pageNav.go(1,13);
-});
-//$('.table-sort').dataTable({
-//	"lengthMenu":false,//显示数量选择
-//	"bFilter": false,//过滤功能
-//	"bPaginate": false,//翻页信息
-//	"bInfo": false,//数量信息
-//	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
-//	"bStateSave": true,//状态保存
-//	"aoColumnDefs": [
-//	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-//	  {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
-//	]
-//})
-//停用的方法
+
 function stu_stop(obj, id) {
     layer.confirm('确认要停用吗？', function (index) {
         $.get("{:url('student/setStatus')}", {id: id});

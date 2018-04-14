@@ -62,7 +62,7 @@
 <!--                <input type="text" class="input-text disabled readonly" readonly id="teacher" name="teacher" value="{$grade_info.teacher}" style="width: 500px">-->
 <!--            </div>-->
 <!--        </div>-->
-<!--            <!--將当前记录的id作为隐藏域发送到服务器-->-->
+<!--            <!--將当前记录的id作为隐藏域发送到服务器-->
       <input type="hidden" value="{$grade_info.id}" name="id">
 
       <div class="row cl">
