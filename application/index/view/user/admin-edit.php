@@ -72,7 +72,7 @@
           <span class="select-box" style="width:150px">
             <select class="select" name="role" size="1">
               <option value="1">超级管理员</option>
-              <option value="0" selected>管理员</option>
+              <option value="0">管理员</option>
             </select>
           </span>
         </div>
@@ -88,15 +88,15 @@
       </div>
     </form>
   </article>
-    <!--请在下方写此页面业务相关的脚本-->
-  <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
-  <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
-  <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.min.js"></script>
-  <script type="text/javascript" src="__STATIC__/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="__STATIC__/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
-  <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
-    <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
-    <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
     $(function () {
         $("form").children().change(function () {
