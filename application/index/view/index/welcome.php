@@ -1,6 +1,4 @@
-﻿<?php
-?>
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -21,7 +19,7 @@
 <script type="text/javascript" src="__STATIC__/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="__STATIC__/vue/vue.js"></script>
 <title>我的桌面</title>
     <style>
         #page-p{
