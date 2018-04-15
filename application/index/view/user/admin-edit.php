@@ -51,8 +51,11 @@
         <div class="form-Controls col-xs-8 col-sm-9">
           <span class="select-box" style="width:150px">
             <select class="select" name="status" size="1">
-              <option value="1">启用</option>
-              <option value="0" selected>不启用</option>
+                {eq name='$user_info.status' value="1"}
+                <option value="1">启用</option>
+                {else /}
+                <option value="0" selected>不启用</option>
+                {/eq}
             </select>
           </span>
         </div>
