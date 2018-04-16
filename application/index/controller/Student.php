@@ -16,23 +16,12 @@ class Student extends Base
     //查询
     public function student()
     {
-        $student=StudentModel::all();
+        $studentList=StudentModel::paginate(5);
         $count = StudentModel::count();
         //$studentList []= null; 等于$studentList [0]= null;
-        $studentList = []; //空字符串
-        foreach($student as $value){
-            $data=[
-                'id'=>$value->id,
-                'name'=>$value->name,
-                'sex'=>$value->sex,
-                'age'=>$value->age,
-                'mobile'=>$value->mobile,
-                'email'=>$value->email,
-                'status'=>$value->status,
-                'start_time'=>$value->start_time,
-                'grade'=>isset($value->grade->name) ? $value->grade->name : '<span style="color:red">未分配</span>',
-            ];
-            $studentList[]=$data;
+        //$studentList = []; //空字符串
+        foreach($studentList as $value){
+            $value ->grade = $value->grade->name;
         }
         $this->view->assign('count',$count);
         $this->view->assign('studentList',$studentList);
