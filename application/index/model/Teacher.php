@@ -38,13 +38,13 @@ class Teacher extends Model
         return $this->belongsTo('Grade');
     }
 
-//    public function DegreeAttr($value)
-//    {
-//        $degree=[
-//            1 => '专科生',
-//            2=> '本科生',
-//            3=> '研究生',
-//        ];
-//        return $degree[$value];
-//    }
+    public function DegreeAttr($value)
+    {
+        $degree=[
+            1 => '专科生',
+            2=> '本科生',
+            3=> '研究生',
+        ];
+        return $degree[$value];
+    }
 }
