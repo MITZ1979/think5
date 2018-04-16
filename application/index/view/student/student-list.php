@@ -1,5 +1,3 @@
-<?php
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,6 +15,9 @@
 <link rel="stylesheet" type="text/css" href="__STATIC__/lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
+
+<link rel="stylesheet" type="text/css" href="__STATIC__/lib/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/lib/bootstrap/css/bootstrap-theme.min.css"/>
 <!--[if IE 6]>
 <script type="text/javascript" src="__STATIC__/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -25,13 +26,14 @@
 </head>
 <body>
 <nav class="breadcrumb">学生信息 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div class="pd-20">
+<div class="mt-1">
   <div class="cl pd-5 bg-1 bk-gray mt-1">
     <span class="l"><a href="javascript:;" onclick="dataDel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>批量恢复</a>
     <a href="javascript:;" onclick="student_add('添加学生','{:url('student/studentAdd')}','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加学生</a></span>
+    <span></span>
     <span class="r">共有数据：<strong>{$count}</strong> 条</span>
   </div>
-  <table class="table table-border table-bordered table-hover table-bg table-sort">
+    <table class="table table-border table-bordered table-hover table-bg table-sort">
     <thead>
       <tr class="text-c">
         <th width="40">ID</th>
@@ -78,19 +80,28 @@
       {/volist}
     </tbody>
   </table>
-<!-- 分页-->
-  <div id="pageNav" class="pageNav">
 
-  </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">{$studentList->render()}</div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.min.js"></script> 
 <script type="text/javascript" src="__STATIC__/static/h-ui.admin/js/H-ui.admin.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/bootstrap/js/bootstrap.min.js"></script>
 <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
+
 <script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/laypage/1.2/laypage.js"></script>
