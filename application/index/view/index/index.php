@@ -12,11 +12,11 @@
 <script type="text/javascript" src="__STATIC__/lib/html5shiv.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="__STATIC__/static//h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="__STATIC__/static//h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css" href="__STATIC__/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="__STATIC__/static//h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="__STATIC__/static//h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="__STATIC__/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -28,7 +28,7 @@
 <body>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="">教学管理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="">教学管理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml"></a>
 		<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 			<ul class="cl">
 				<li>管理员</li>
@@ -118,8 +118,8 @@
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="__STATIC__/static//h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="__STATIC__/static//h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="__STATIC__/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="__STATIC__/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
